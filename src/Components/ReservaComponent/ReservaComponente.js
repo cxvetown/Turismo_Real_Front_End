@@ -14,14 +14,14 @@ import tours from "../../Img/travel-map.png"
 const handletour = async (reserva_id) =>{
     //consulta que trae el id_depto
     localStorage.setItem('idReserva', reserva_id)
-    const resp1 = await axios.get(`http://localhost:8080/api/v1/traerDpto/${reserva_id}`)
+    const resp1 = await axios.get(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/traerDpto/${reserva_id}`)
     localStorage.setItem('depto_tour', resp1.data)
     localStorage.setItem('ocultarBtn', 1)
     window.location.replace(`/mostrartour/${reserva_id}`);
 }
 
 const handleUpdate = async (id_reserva) => {
-    const resp = await axios.post(`http://localhost:8080/api/v1/updateReserva/${id_reserva}`)
+    const resp = await axios.post(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/updateReserva/${id_reserva}`)
     console.log(resp.data)
 
     const MySwal = withReactContent(Swal);

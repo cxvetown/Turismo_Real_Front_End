@@ -22,8 +22,8 @@ const DeptoVista = () => {
     const { id_depto } = useParams()
 
     //variables con las url que llaman al backend
-    const url = `http://localhost:8080/api/v1/test/${id_depto}`;
-    const url_all = `http://localhost:8080/api/v1/fotosDepartamento/${id_depto}`;
+    const url = `http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/test/${id_depto}`;
+    const url_all = `http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/fotosDepartamento/${id_depto}`;
 
     //llamamos al useContext para obtener los datos de la sesion activa
     const { usuario, id } = useContext(clienteContext);
@@ -64,7 +64,7 @@ const DeptoVista = () => {
     useEffect(() => {
         //llamamos al backend y traemos todas las fotos del departamento
         const CargarFotos = async () => {
-            const resp = await axios.get(`http://localhost:8080/api/v1/fotosDepartamento/${id_depto}`)
+            const resp = await axios.get(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/fotosDepartamento/${id_depto}`)
             //traemos los 5 primeros datos para insertarlos en la pagina principal
             setFoto0(resp.data[0])
             setFoto1(resp.data[1])
@@ -94,7 +94,7 @@ const DeptoVista = () => {
             setNumeroDepto(resp.data.nroDepto)
             setTarifa(resp.data.tarifaDiaria)
             setComuna(resp.data.id_comuna)
-            const respComuna = await axios.get(`http://localhost:8080/api/v1/comunaid/${resp.data.id_comuna}`)
+            const respComuna = await axios.get(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/comunaid/${resp.data.id_comuna}`)
             setnombreComuna(respComuna.data.nombre_comuna)
         }
         catch (error) {
@@ -162,7 +162,7 @@ const DeptoVista = () => {
                                 let fecha_vuelta1 = localStorage.getItem('fecha_vuelta')
                                 let acomp = localStorage.getItem('acompañante')
 
-                                const resp = axios.post('http://localhost:8080/api/v1/reserva_pl', {
+                                const resp = axios.post('http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/reserva_pl', {
                                     id_dpto: id_depto, id_cliente: id, estado_reserva: "I", estado_pago: "P", check_in: fecha_ida1,
                                     check_out: fecha_vuelta1, firma: 0, valor_total: valorTotal, cantidad_acompañantes: acomp, transporte: "S"
                                 }).then(resp => { localStorage.setItem('idReserva', resp.data) })
@@ -184,7 +184,7 @@ const DeptoVista = () => {
                                 let fecha_vuelta1 = localStorage.getItem('fecha_vuelta')
                                 let acomp = localStorage.getItem('acompañante')
                                 //inserta la reserva en la base de datos
-                                const resp = axios.post('http://localhost:8080/api/v1/reserva_pl', {
+                                const resp = axios.post('http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/reserva_pl', {
                                     id_dpto: id_depto, id_cliente: id, estado_reserva: "I", estado_pago: "P", check_in: fecha_ida1,
                                     check_out: fecha_vuelta1, firma: 0, valor_total: valorTotal, cantidad_acompañantes: acomp, transporte: "N"
                                 }).then(resp => { localStorage.setItem('idReserva', resp.data) })

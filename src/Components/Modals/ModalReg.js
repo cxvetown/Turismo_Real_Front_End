@@ -60,11 +60,11 @@ function Registrar() {
                     icon: "error"
                 })
             } else {
-                const resRut = await axios.post('http://localhost:8080/api/v1/rutComprobacion', {
+                const resRut = await axios.post('http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/rutComprobacion', {
                     rut: Rut
                 })
                 if (resRut.data === '') {
-                    const respCorreo = await axios.post('http://localhost:8080/api/v1/correoComprobacion', {
+                    const respCorreo = await axios.post('http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/correoComprobacion', {
                         email: correo
                     })
                     if (respCorreo.data === '') {

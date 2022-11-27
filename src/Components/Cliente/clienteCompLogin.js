@@ -7,8 +7,8 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 //creamos variables con las url que llaman al backend
-const url = "http://localhost:8080/api/v1/login"
-const url_confirm = "http://localhost:8080/api/v1/loginConfirmed/"
+const url = "http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/login"
+const url_confirm = "http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/loginConfirmed/"
 
 //creamos la funcion principal que contiene todo el codigo
 const Login = () => {

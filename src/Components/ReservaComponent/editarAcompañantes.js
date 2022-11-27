@@ -29,11 +29,11 @@ const EditarAcom = () => {
         //llamamos al backend y traemos todas la disponibilidad
         const cargarDisponibilidad = async () => {
             //traemos el id del departamento en base a la reserva
-            const resp = await axios.get(`http://localhost:8080/api/v1/traerDpto/${id_reserva}`)
+            const resp = await axios.get(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/traerDpto/${id_reserva}`)
             localStorage.setItem('iddep', resp.data)
             //traemos la disponibilidad del departamento
             let id_dep = localStorage.getItem('iddep')
-            const respDepto = await axios.get(`http://localhost:8080/api/v1/capacidad/${id_dep}`)
+            const respDepto = await axios.get(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/capacidad/${id_dep}`)
             setDisponibilidad(respDepto.data)
         }
         cargarDisponibilidad()
@@ -48,7 +48,7 @@ const EditarAcom = () => {
             })
         }
         else{
-            const resp = await axios.post(`http://localhost:8080/api/v1/act_acompañantes/${id_reserva}`, {
+            const resp = await axios.post(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/act_acompañantes/${id_reserva}`, {
             cantidad_acompañantes: acompañantes
         });
         //mensaje de confirmacion y redireccion a la lista de reservas

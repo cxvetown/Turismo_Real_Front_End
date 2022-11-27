@@ -18,7 +18,7 @@ class DeptoFiltro extends React.Component {
         let id_com = localStorage.getItem('id_com')
         let fecha_ida1 = localStorage.getItem('fecha_ida')
         let fecha_vuelta1 = localStorage.getItem('fecha_vuelta')
-        const resp = axios.post("http://localhost:8080/api/v1/deptoFiltrados",{
+        const resp = axios.post("http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/deptoFiltrados",{
             id_comuna: id_com, check_in: fecha_ida1, check_out: fecha_vuelta1
         }).then((resp) => {
             this.setState({ deptofil: resp.data })

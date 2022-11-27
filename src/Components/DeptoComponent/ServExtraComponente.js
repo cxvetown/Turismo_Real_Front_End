@@ -15,14 +15,14 @@ const HandleInsertar = async (id_sv_extra, valor_serv) => {
     let idCliente = localStorage.getItem("id_cliente")
     console.log(reserva)
     //llamamos al backend para traer el departamento e insertamos el servicio extra
-    const resp = await axios.get(`http://localhost:8080/api/v1/traerDpto/${reserva}`)
+    const resp = await axios.get(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/traerDpto/${reserva}`)
     let id_depto1 = resp.data
     console.log(id_depto1)
-    const resp1 = await axios.post("http://localhost:8080/api/v1/servExtra", {
+    const resp1 = await axios.post("http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/servExtra", {
         id_reserva: reserva, id_svc_ex: id_sv_extra, id_dpto: id_depto1, id_cliente: idCliente
     })
     //actualizamos el pago sumando el valor total con el valor del servicio extra
-    const respActualizarPago = await axios.post(`http://localhost:8080/api/v1/actualizarValor/${reserva}`, {
+    const respActualizarPago = await axios.post(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/actualizarValor/${reserva}`, {
         valor_serv_ex: valor_serv
     })
     //enviamos un mensaje de aceptacion

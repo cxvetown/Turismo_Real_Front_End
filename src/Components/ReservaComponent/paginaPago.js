@@ -41,7 +41,7 @@ const Pago_web = () => {
     //creamos un use effect para cargar el valor total
     useEffect(() => {
         const obtenerValorTotal = async () => {
-            const resp = await axios.get(`http://localhost:8080/api/v1/obtenerReserva/${id_reserva}`)
+            const resp = await axios.get(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/obtenerReserva/${id_reserva}`)
             setValorTotal(resp.data.valor_total * (75 / 100))
         }
         obtenerValorTotal()
@@ -57,7 +57,7 @@ const Pago_web = () => {
             })
         }
         else {
-            const resp = await axios.post(`http://localhost:8080/api/v1/ActualizarPago/${id_reserva}`)
+            const resp = await axios.post(`http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/ActualizarPago/${id_reserva}`)
             console.log(resp.data.estado_pago)
 
             
