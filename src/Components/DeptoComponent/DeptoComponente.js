@@ -1,5 +1,5 @@
 import React from "react";
-import * as DeptoService from "../../services/DeptoService";
+import DeptoService from "../../services/DeptoService";
 import { CardComponentNP } from "../Cards/cardnoPresionable";
 import { Row } from "react-bootstrap";
 import "./DeptoComponente.css"
@@ -17,7 +17,7 @@ class DeptoComponent extends React.Component {
 
     //llamamos la funcion que se encarga de llamar al servicio y hacer la llamada al backend
     componentDidMount() {
-        DeptoService.obtenerDepto().then((Response) => {
+        DeptoService.getDeptos().then((Response) => {
             this.setState({ deptos: Response.data })
         });
     }
