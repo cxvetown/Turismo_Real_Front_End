@@ -78,7 +78,7 @@ export const Inicio = () => {
 
     useEffect(() => {
         const cargarComuna = async () => {
-            const resp = await axios.get("http://localhost:8080/api/v1/comunas")
+            const resp = await axios.get("http://turismorealbackend-env.eba-2xh2p8ax.sa-east-1.elasticbeanstalk.com/api/v1/comunas")
             //resp.data.forEach((comu)=>{
             //console.log(comu.nombre_comuna)
             //})
